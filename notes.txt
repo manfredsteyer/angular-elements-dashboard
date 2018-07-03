@@ -1,0 +1,21 @@
+# Ohne Ivy
+28.04.2018  13:55             2.179 3rdpartylicenses.txt
+28.04.2018  13:55             5.430 favicon.ico
+28.04.2018  13:55               584 index.html
+28.04.2018  13:55           152.573 main.70ffcc07493bd7f3d455.js
+28.04.2018  13:55            59.408 polyfills.2d976f42c1abc2acac30.js
+28.04.2018  13:55             1.053 runtime.6afe30102d8fe7337431.js
+28.04.2018  13:55                 0 styles.34c57ab7888ec1573f9c.css
+
+# Mit Ivy
+28.04.2018  13:59             2.179 3rdpartylicenses.txt
+28.04.2018  13:59             5.430 favicon.ico
+28.04.2018  13:59               584 index.html
+28.04.2018  13:59            16.882 main.22b04d0a1b83cff0eaf0.js
+28.04.2018  13:59            59.408 polyfills.2d976f42c1abc2acac30.js
+28.04.2018  13:59             1.053 runtime.6afe30102d8fe7337431.js
+28.04.2018  13:59                 0 styles.34c57ab7888ec1573f9c.css
+
+ng g @angular/material:material-table --name table
+ng g @angular/material:material-nav --name nav
+ng g @angular/material:material-nav --name dashboard
