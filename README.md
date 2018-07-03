@@ -1,6 +1,6 @@
 # Angular Elements Dashboard Demo
 
-Show how to dynamically load and create Angular Elements based Custom Elements (Web Components).
+Shows how to dynamically load and create Angular Elements (Custom Elements, Web Components).
 
 ![Show Case](./img.png)
 
