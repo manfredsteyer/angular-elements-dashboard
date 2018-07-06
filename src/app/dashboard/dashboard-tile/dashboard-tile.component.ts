@@ -5,15 +5,8 @@ import { Component, OnInit, Input } from '@angular/core';
   templateUrl: './dashboard-tile.component.html',
   styleUrls: ['./dashboard-tile.component.css']
 })
-export class DashboardTileComponent implements OnInit {
-
+export class DashboardTileComponent  {
   @Input() a: number;
   @Input() b: number;
   @Input() c: number;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
 }

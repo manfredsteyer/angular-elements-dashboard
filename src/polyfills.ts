@@ -71,4 +71,4 @@ import 'zone.js/dist/zone';  // Included with Angular CLI.
  */
 // import 'intl/locale-data/jsonp/en';
 
-//import '@webcomponents/custom-elements/custom-elements.min';
+import '@webcomponents/custom-elements/custom-elements.min';
