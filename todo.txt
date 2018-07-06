@@ -1,0 +1,2 @@
+- Lazy Loading and router.umd.js
+- chart lib: exchange

@@ -8,7 +8,7 @@
       "projectType": "application",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "ngx-build-plus:build",
           "options": {
             "lazyModules": [
               "src/app/flight-cancelling/flight-cancelling.module",
@@ -29,7 +29,13 @@
                 "glob": "favicon.ico",
                 "input": "src",
                 "output": "/"
+              },
+              {
+                "glob": "default.html",
+                "input": "src",
+                "output": "/"
               }
+
             ],
             "styles": [
               "src/styles.css"
@@ -59,7 +65,7 @@
           }
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "ngx-build-plus:dev-server",
           "options": {
             "browserTarget": "dashboard:build"
           },

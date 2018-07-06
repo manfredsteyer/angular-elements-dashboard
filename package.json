@@ -3,15 +3,15 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --project dashboard -o",
-    "build": "ng build",
+    "start": "ng serve --aot --project dashboard --singleBundle false --extraWebpackConfig webpack.extra.js -o",
+    "build": "ng build --prod --project dashboard --singleBundle false --extraWebpackConfig webpack.extra.js --output-hashing none",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "start:ce": "ng serve --project external-dashboard-tile -o",
     "build:ce": "npm run bundle:ce && npm run copy:ce",
     "copy:ce": "cpr dist/external-dashboard-tile/main.js src/assets/external-dashboard-tile.bundle.js -o",
-    "bundle:ce": "ng build --project external-dashboard-tile --prod --output-hashing none"
+    "bundle:ce": "ng build --project external-dashboard-tile --prod --output-hashing none --extraWebpackConfig ../../webpack.extra.js"
   },
   "private": true,
   "dependencies": {
@@ -31,6 +31,7 @@
     "install": "^0.12.1",
     "npm": "^6.1.0",
     "rxjs": "^6.0.0",
+    "systemjs": "^0.21.4",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {

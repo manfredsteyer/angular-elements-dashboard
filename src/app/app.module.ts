@@ -24,7 +24,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     // FlightBookingModule, // Verweise auf lazy Module entfernen
 
     RouterModule.forRoot(APP_ROUTES, {
-      preloadingStrategy: PreloadAllModules
+      // preloadingStrategy: PreloadAllModules
     })
   ],
   declarations: [
