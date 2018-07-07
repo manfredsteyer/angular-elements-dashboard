@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   // selector: 'app-external-dashboard-tile',
@@ -10,7 +10,6 @@ export class ExternalDashboardTileComponent {
   @Input() a: number;
   @Input() b: number;
   @Input() c: number;
-
 
 }
 
