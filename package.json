@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --aot --project dashboard --singleBundle false --extraWebpackConfig webpack.extra.js -o",
-    "build": "ng build --prod --project dashboard --singleBundle false --extraWebpackConfig webpack.extra.js --output-hashing none",
+    "start": "ng serve --aot --project dashboard --singleBundle false --extraWebpackConfig webpack.extra.app.js -o",
+    "build": "ng build --prod --project dashboard --singleBundle false --extraWebpackConfig webpack.extra.app.js --output-hashing none",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",

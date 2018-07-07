@@ -1,4 +1,5 @@
 module.exports = {
+    
     "externals": {
         
         "rxjs": "rxjs",

@@ -29,11 +29,6 @@
                 "glob": "favicon.ico",
                 "input": "src",
                 "output": "/"
-              },
-              {
-                "glob": "default.html",
-                "input": "src",
-                "output": "/"
               }
 
             ],
