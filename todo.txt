@@ -1,2 +1,3 @@
-- Lazy Loading and router.umd.js
-- chart lib: exchange
+- Lazy Loading
+  - Issue w/ externals
+  - Issue w/ filenames

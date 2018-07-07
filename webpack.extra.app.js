@@ -14,4 +14,4 @@ var appConfig = merge(config, {
     ]
 });
 
-module.exports = config;
+module.exports = appConfig;
