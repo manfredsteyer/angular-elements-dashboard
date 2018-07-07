@@ -2,23 +2,28 @@
   <div class="header">
     <h1 class="title">External</h1>
   </div>
-  <div class="content">
-    <div style="height:200px;">
+  <div class="content" *ngIf="stats$ | push as stats">
+    <div style="height:200px;"> 
       <br>
-      <table class="table table-contensed">
+      <table class="table table-condensed">
         <tr>
           <td>A</td>
-          <td>{{a}}</td>
+          <!-- <td>{{a}}</td> -->
+          <td>{{stats.a}}</td>
         </tr>
         <tr>
           <td>B</td>
-          <td>{{b}}</td>
+          <!-- <td>{{b}}</td> -->
+          <td>{{stats.b}}</td>
         </tr>
         <tr>
           <td>C</td>
-          <td>{{c}}</td>
+          <!-- <td>{{c}}</td> -->
+          <td>{{stats.c}}</td>
         </tr>
       </table>
+      <td colspan="2" align="center"><button class="btn btn-default btn-sm" (click)="more()">More</button></td>
+      
     </div>
   </div>
 </div>
