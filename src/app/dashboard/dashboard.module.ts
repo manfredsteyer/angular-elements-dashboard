@@ -25,7 +25,9 @@ export class DashboardModule {
 
   constructor(private injector: Injector) {
 
-    const tileCE = createCustomElement(DashboardTileComponent, { injector: this.injector });
+    const tileCE = createCustomElement(DashboardTileComponent, 
+                                      { injector: this.injector });
+    
     customElements.define('dashboard-tile', tileCE);
 
   }
