@@ -4,7 +4,7 @@ import { FlightService } from './flight.service';
 import { FlightSearchComponent } from './flight-search/flight-search.component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { SharedModule } from '../shared/shared.module';
 import { FlightCardComponent } from './flight-card/flight-card.component';
 import { PassengerSearchComponent } from './passenger-search/passenger-search.component';
@@ -25,6 +25,9 @@ import { FlightEditComponent } from './flight-edit/flight-edit.component';
 ,
     FlightEditComponent
 ],
+    schemas: [
+        CUSTOM_ELEMENTS_SCHEMA
+    ],
     providers: [
         FlightService
     ],

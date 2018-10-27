@@ -1,6 +1,6 @@
 <div class="card">
   <div class="header">
-    <h1 class="title">Build-in</h1>
+    <h1 class="title"><slot name="title">Build-in</slot></h1>
   </div>
   <div class="content">
 
@@ -8,5 +8,9 @@
       <ngx-charts-pie-chart [labels]="true" [results]="data">
       </ngx-charts-pie-chart>
     </div>
+
+    <p><slot></slot></p>
+    <i><slot name="legend"></slot></i>
+    
   </div>
 </div>
