@@ -10,7 +10,7 @@
     </div>
 
     <p><slot></slot></p>
-    <i><slot name="legend"></slot></i>
+    <i><slot (slotchange)="slotChange($event)" name="legend">No Legend available.</slot></i>
     
   </div>
 </div>

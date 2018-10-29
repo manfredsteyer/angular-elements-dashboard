@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation, ElementRef, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-dashboard-tile',
@@ -13,7 +13,11 @@ export class DashboardTileComponent implements OnInit {
 
   data: object = {};
 
+  constructor(private elm: ElementRef) {
+  }
+
   ngOnInit() {
+
     this.data = [
       {
         name: 'a',
@@ -28,5 +32,24 @@ export class DashboardTileComponent implements OnInit {
         value: this.c
       }
     ];
+  }
+  
+  queryAssignedContent(slotName: string) {
+    const selector = `slot[name=${slotName}]`;
+    const slot = this.elm.nativeElement.shadowRoot.querySelectorAll(selector);
+    if (slot.length === 0) return null;
+    return slot[0].assignedNodes();
+  }
+
+  queryFirstAssignedContnet(slotName: string) {
+    const result = this.queryAssignedContent(slotName);
+    if (result === null) return null;
+    if (result.length === 0) return null;
+    return result[0];
+  }
+
+  slotChange($event) {
+    const content = this.queryFirstAssignedContnet('legend');
+    console.debug('slotChange', content.innerHTML);
   }
 }

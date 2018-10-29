@@ -1,0 +1,3 @@
+/* need to import separately b/c of shadow dom */
+@import '../../../assets/css/bootstrap.min.css';
+@import '../../../assets/css/paper-dashboard.css';
