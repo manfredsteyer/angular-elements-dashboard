@@ -1,20 +1,22 @@
 # Content Projection with Slots in Angular Elements (>=7)
 
-Since Angular 7, we can use ``slots`` to project some markup into an component's template. These slots have been introduced with Shadow DOM v1 which Angular supports since version 6.1. 
+Since Angular 7, we can use ``slots`` to project markup into an component's template. These slots have been introduced with Shadow DOM v1 which Angular supports since version 6.1. 
 
-This article shows how to use both, Shadow DOM v1 and slots. For this, it uses a component that shows a diagram:
+This article shows how to use both, Shadow DOM v1 and ``slots``. For this, it uses a component that shows a diagram:
 
 ![Sample component](./slots.png)
 
-The title, as well as the description and the legend on the bottom can be adjusted using slots. You can find the [source code in my GitHub repo](https://github.com/manfredsteyer/angular-elements-dashboard/tree/ng7) (branch: ng7):
+The title, as well as the description and the legend on the bottom can be adjusted using content projection with ``slots``. You can find the [source code in my GitHub repo](https://github.com/manfredsteyer/angular-elements-dashboard/tree/ng7) (branch: ng7):
 
 » [Source Code (branch: ng7)](https://github.com/manfredsteyer/angular-elements-dashboard/tree/ng7)
 
 ## Shadow DOM v1
 
-[Shadow DOM](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM) has always been an central concept for Angular Components. By default, Angular emulates this standard which isolates a component's style from other components. It's also possible to turn it off or to tell Angular to rely on the Browser's implementation which can provide a better isolation than the emulated one.
+[Shadow DOM](https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM) has always been an central concept for Angular Components. By default, Angular emulates this standard which isolates a component's style from other components. The idea is that one component's local styles shall not interfere with other components.
 
-However, until Angular 6.1, Angular just supported what's known as Shadow DOM v0. Meanwhile, browser vendors agreed on the revised Version 1 which will be widely implemented. At the time of writing, Chrome, Safari, Firefox and Opera supported it and the Edge-team is currently implementing it.
+It's also possible to turn it off or to tell Angular to rely on the Browser's implementation which can provide a better isolation than the emulated one.
+
+However, until Angular 6.1, Angular supported what's known as Shadow DOM v0. Meanwhile, browser vendors agreed on the revised Version 1 which will be widely implemented. At the time of writing, Chrome, Safari, Firefox and Opera already supported it and the Edge-team was currently implementing it.
 
 To use Shadow DOM v1 in Angular (>= 6.1), just set the ``encapsulation`` property in the ``Component`` decorator to the newly introduced value ``ShadowDom``:
 
@@ -32,13 +34,13 @@ export class DashboardTileComponent implements OnInit {
 } 
 ```
 
-Don't confuse ``ViewEncapsulation.ShadowDom`` with ``ViewEncapsulation.Native`` which exists since Angular's first days and activated Shadow DOM v0 in the browser.
+Don't confuse ``ViewEncapsulation.ShadowDom`` with ``ViewEncapsulation.Native`` which exists since Angular's first days and leverages Shadow DOM v0.
 
 ## Slots for Content Projection
 
 Many Web Components -- or to be more precise, many Custom Elements -- need to be adaptable with some markup passed as the element's content. This is also called content projected because the passed content is projected to different positions of the element's template.
 
-For this, Shadow DOM v1 introduced the ``slot`` element. Each ``slot`` marks a position where content can be projected to:
+For this, Shadow DOM v1 introduces the ``slot`` element. Each ``slot`` marks a position within a template where content can be projected to:
 
 ```typescript
 <div class="card">
@@ -59,7 +61,7 @@ For this, Shadow DOM v1 introduced the ``slot`` element. Each ``slot`` marks a p
 </div>
 ```
 
-Between the opening and the closing ``slot`` tags, we can place some default markup that is shown if the caller does not pass any content for it. There can be one default slot as well as several named slots.
+Between the opening and the closing ``slot`` tags, we can place some default markup that is shown if the caller does not pass any content for it. There can be one default slot and named ones.
 
 When calling such a Custom Element, we can use the ``slot`` attribute to point to one of the named slots within the component's template:
 
@@ -105,7 +107,7 @@ export class DashboardTileComponent  {
 }
 ```
 
-This helper method just uses the Components ElementRef to query the slot in question. Than, it calls the ``queryAssignedContent`` method to get the projected content:
+This helper method just uses the Components ``ElementRef`` to query the slot in question. Then, it calls the ``queryAssignedContent`` method to get the projected content:
 
 ```typescript
 @Component({
