@@ -34,22 +34,10 @@ export class DashboardTileComponent implements OnInit {
     ];
   }
   
-  queryAssignedContent(slotName: string) {
-    const selector = `slot[name=${slotName}]`;
-    const slot = this.elm.nativeElement.shadowRoot.querySelectorAll(selector);
-    if (slot.length === 0) return null;
-    return slot[0].assignedNodes();
-  }
-
-  queryFirstAssignedContnet(slotName: string) {
-    const result = this.queryAssignedContent(slotName);
-    if (result === null) return null;
-    if (result.length === 0) return null;
-    return result[0];
-  }
-
   slotChange($event) {
-    const content = this.queryFirstAssignedContnet('legend');
-    console.debug('slotChange', content.innerHTML);
+    const assigned = $event.target.assignedNodes();
+    if (assigned.length > 0) {
+      console.debug('shotchange', assigned[0]);
+    }
   }
 }
