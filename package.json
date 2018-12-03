@@ -11,7 +11,9 @@
     "start:ce": "ng serve --project external-dashboard-tile -o",
     "build:ce": "npm run bundle:ce && npm run copy:ce",
     "copy:ce": "cpr dist/external-dashboard-tile/main.js src/assets/external-dashboard-tile.bundle.js -o",
-    "bundle:ce": "ng build --project external-dashboard-tile --prod --output-hashing none"
+    "bundle:ce": "ng build --project external-dashboard-tile --prod --output-hashing none",
+    "build:modern": "ng build --plugin ngx-build-modern --prod",
+    "build:modern:external-dashboard-tile": "ng build --plugin ngx-build-modern --project external-dashboard-tile --prod"
   },
   "private": true,
   "dependencies": {
@@ -29,13 +31,14 @@
     "application": "^0.1.4",
     "core-js": "^2.5.4",
     "install": "^0.12.1",
+    "ngx-build-modern": "^1.0.2",
     "npm": "^6.1.0",
     "rxjs": "^6.3.3",
     "zone.js": "^0.8.26"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.6.0",
-    "@angular/cli": "~6.0.0",
+    "@angular/cli": "~7.1.0",
     "@angular/compiler-cli": "^7.0.1",
     "@angular/elements": "^7.0.1",
     "@angular/language-service": "^7.0.1",
@@ -51,7 +54,7 @@
     "karma-coverage-istanbul-reporter": "~1.4.2",
     "karma-jasmine": "~1.1.1",
     "karma-jasmine-html-reporter": "^0.2.2",
-    "ngx-build-plus": "^1.1.0",
+    "ngx-build-plus": "^7.2.3",
     "protractor": "~5.3.0",
     "ts-node": "~5.0.1",
     "tslint": "~5.9.1",
