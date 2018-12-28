@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, Injector } from '@angular/core';
 import { ExternalDashboardTileComponent } from './external-dashboard-tile/external-dashboard-tile.component';
@@ -5,6 +6,7 @@ import { createCustomElement } from '@angular/elements';
 
 @NgModule({
    imports: [
+      HttpClientModule,
       BrowserModule
    ],
    declarations: [
@@ -16,7 +18,6 @@ import { createCustomElement } from '@angular/elements';
    ]
 })
 export class AppModule { 
-
     constructor(private injector: Injector) {
     }
 

@@ -144,8 +144,7 @@
       "schematics": {},
       "architect": {
         "build": {
-          // "builder": "@angular-devkit/build-angular:browser",
-          "builder": "ngx-build-plus:build",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/external-dashboard-tile",
             "index": "projects/external-dashboard-tile/src/index.html",
@@ -159,9 +158,7 @@
             "styles": [
               "projects/external-dashboard-tile/src/styles.css"
             ],
-            "scripts": [
-              "node_modules/@webcomponents/custom-elements/src/native-shim.js"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
@@ -251,6 +248,133 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "projects/external-dashboard-tile-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "playground-app": {
+      "root": "projects/playground-app/",
+      "sourceRoot": "projects/playground-app/src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/playground-app",
+            "index": "projects/playground-app/src/index.html",
+            "main": "projects/playground-app/src/main.ts",
+            "polyfills": "projects/playground-app/src/polyfills.ts",
+            "tsConfig": "projects/playground-app/tsconfig.app.json",
+            "assets": [
+              "projects/playground-app/src/favicon.ico",
+              "projects/playground-app/src/assets"
+            ],
+            "styles": [
+              "projects/playground-app/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/playground-app/src/environments/environment.ts",
+                  "with": "projects/playground-app/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "playground-app:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "playground-app:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "playground-app:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/playground-app/src/test.ts",
+            "polyfills": "projects/playground-app/src/polyfills.ts",
+            "tsConfig": "projects/playground-app/tsconfig.spec.json",
+            "karmaConfig": "projects/playground-app/karma.conf.js",
+            "styles": [
+              "projects/playground-app/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/playground-app/src/favicon.ico",
+              "projects/playground-app/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/playground-app/tsconfig.app.json",
+              "projects/playground-app/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "playground-app-e2e": {
+      "root": "projects/playground-app-e2e/",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/playground-app-e2e/protractor.conf.js",
+            "devServerTarget": "playground-app:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "playground-app:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "projects/playground-app-e2e/tsconfig.e2e.json",
             "exclude": [
               "**/node_modules/**"
             ]
