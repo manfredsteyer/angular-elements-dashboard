@@ -11,7 +11,7 @@
     "start:ce": "ng serve --project external-dashboard-tile -o",
     "build:ce": "npm run bundle:ce && npm run copy:ce",
     "copy:ce": "cpr dist/external-dashboard-tile/main.js src/assets/external-dashboard-tile.bundle.js -o",
-    "bundle:ce": "ng build --project external-dashboard-tile --prod --output-hashing none"
+    "bundle:ce": "ng build --project external-dashboard-tile --prod --output-hashing none --single-bundle true"
   },
   "private": true,
   "dependencies": {
