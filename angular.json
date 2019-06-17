@@ -259,6 +259,7 @@
       }
     }
   },
+  "defaultProject": "dashboard",
   "cli": {},
   "schematics": {
     "@schematics/angular:component": {
