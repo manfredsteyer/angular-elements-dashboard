@@ -26,3 +26,7 @@ npm run build:ce
 npm start
 ```
 
+## Trainings and Consultancy
+If you need help with implementing huge Angular applications, feel free to reach out to us. We offer [trainings, workshops, and consultancy for Angular](https://www.softwarearchitekt.at/angular-schulung/).
+---
+_German Translation: Falls Du Hilfe bei der Umsetzung gro0er Angular Anwendungen beötigst, kannst Du Dich gerne bei uns melden. Wir bieten [Schulungen, Workshops und Beratung zu Angular](https://www.softwarearchitekt.at/angular-schulung/)_
