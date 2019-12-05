@@ -8,7 +8,7 @@
       "projectType": "application",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "ngx-build-plus:browser",
           "options": {
             "lazyModules": [
               "src/app/flight-cancelling/flight-cancelling.module",
@@ -59,7 +59,7 @@
           }
         },
         "serve": {
-          "builder": "@angular-devkit/build-angular:dev-server",
+          "builder": "ngx-build-plus:dev-server",
           "options": {
             "browserTarget": "dashboard:build"
           },
@@ -76,7 +76,7 @@
           }
         },
         "test": {
-          "builder": "@angular-devkit/build-angular:karma",
+          "builder": "ngx-build-plus:karma",
           "options": {
             "main": "src/test.ts",
             "karmaConfig": "./karma.conf.js",
@@ -144,7 +144,6 @@
       "schematics": {},
       "architect": {
         "build": {
-          // "builder": "@angular-devkit/build-angular:browser",
           "builder": "ngx-build-plus:build",
           "options": {
             "outputPath": "dist/external-dashboard-tile",
@@ -259,6 +258,7 @@
       }
     }
   },
+  "defaultProject": "dashboard",
   "cli": {},
   "schematics": {
     "@schematics/angular:component": {
