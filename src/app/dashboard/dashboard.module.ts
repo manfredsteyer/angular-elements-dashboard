@@ -21,7 +21,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     DashboardTileComponent
   ]
 })
-export class DashboardModule { 
+export class DashboardModule {
 
   constructor(private injector: Injector) {
 

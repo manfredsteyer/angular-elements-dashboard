@@ -15,11 +15,13 @@ export class DashboardComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.addLazy('dashboard-chart');
+    this.addLazy('lazy-dashboard-tile');
   }
 
   getData(): [number, number, number] {
     return [
-      Math.round(Math.random() * 100),
+      Math.round(Math.random() * 200),
       Math.round(Math.random() * 100),
       Math.round(Math.random() * 100)
     ];
@@ -28,10 +30,10 @@ export class DashboardComponent implements OnInit {
   addDefault(): void {
     this.add('dashboard-tile');
   }
-  
-  addLazy(): void {
-    this.lazyService.load().then(_ => {
-      this.add('lazy-dashboard-tile');
+
+  addLazy(name): void {
+    this.lazyService.load(name).then(_ => {
+      this.add(name);
     });
   }
 

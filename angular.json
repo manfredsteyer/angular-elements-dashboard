@@ -12,7 +12,8 @@
           "options": {
             "lazyModules": [
               "src/app/flight-cancelling/flight-cancelling.module",
-              "src/app/lazy-dashboard-tile/lazy-dashboard-tile.module"
+              "src/app/dashboard/lazy/dashboard-chart/dashboard-chart.module",
+              "src/app/dashboard/lazy/lazy-dashboard-tile/lazy-dashboard-tile.module"
             ],
             "outputPath": "dist",
             "index": "src/index.html",

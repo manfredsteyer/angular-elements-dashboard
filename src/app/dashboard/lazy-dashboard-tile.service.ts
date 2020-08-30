@@ -1,4 +1,4 @@
-import { Injectable, Injector, NgModuleFactoryLoader, NgModuleRef, NgModuleFactory } from '@angular/core';
+import { Injectable, Injector, NgModuleFactoryLoader, NgModuleRef } from '@angular/core';
 
 @Injectable({
     providedIn: 'root'
@@ -11,27 +11,25 @@ export class LazyDashboardTileService  {
     ) {
     }
 
-    private moduleRef: NgModuleRef<any>;
+    private moduleRef: {[s: string]: NgModuleRef<any>} = {};
 
-    load(): Promise<void> {
-        
-        if (this.moduleRef) {
+    load(componentName): Promise<void> {
+
+        if (this.moduleRef[componentName]) {
             return Promise.resolve();
         }
 
-        const path = 'src/app/lazy-dashboard-tile/lazy-dashboard-tile.module#LazyDashboardTileModule'
-        
+        const moduleName = componentName.split('-').map(name => name.charAt(0).toUpperCase() + name.slice(1)).join('').concat('Module');
+        const path = `src/app/dashboard/lazy/${componentName}/${componentName}.module#${moduleName}`;
         return this
             .loader
             .load(path)
             .then(moduleFactory => {
-                this.moduleRef = moduleFactory.create(this.injector).instance;
+                this.moduleRef[componentName] = moduleFactory.create(this.injector).instance;
                 console.debug('moduleRef', this.moduleRef);
             })
             .catch(err => {
-                console.error('error loading module', err); 
+                console.error('error loading module', err);
             });
-        
     }
 }
- 
